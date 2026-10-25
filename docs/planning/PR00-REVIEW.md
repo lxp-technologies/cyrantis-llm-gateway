@@ -1,6 +1,6 @@
 # PR00 — Rapport final et passage au développement
 
-État : finalisation documentaire sur `chore/init`, le 2026-10-25, selon le [brief de finalisation](../pr-00-finalize.md). Aucun développement PR01A/PR01B commencé. Les contrôles applicatifs décrits restent à implémenter et à tester.
+État : finalisation documentaire sur `chore/init`, le 2026-10-25, selon le [brief de finalisation](../prs/pr-00/pr-00-finalize.md). Aucun développement PR01A/PR01B commencé. Les contrôles applicatifs décrits restent à implémenter et à tester.
 
 ## PR00 en 60 secondes
 
@@ -62,7 +62,7 @@ Validation future pour Patrick : installation depuis un checkout propre, command
 
 ## Validation
 
-Le vérificateur documentaire [verify-pr00.py](../verify-pr00.py) utilise uniquement Python standard, ne modifie aucun fichier et ne teste aucun comportement applicatif. Il contrôle UTF-8, fichiers requis, titres, blocs de code, espaces de fin de ligne et cibles de liens locaux. Les ancres/rendus Markdown et toutes les URL externes ne sont pas certifiés par ce script.
+Le vérificateur documentaire [verify-pr00.py](../prs/pr-00/verify-pr00.py) utilise uniquement Python standard, ne modifie aucun fichier et ne teste aucun comportement applicatif. Il contrôle UTF-8, fichiers requis, titres, blocs de code, espaces de fin de ligne et cibles de liens locaux. Les ancres/rendus Markdown et toutes les URL externes ne sont pas certifiés par ce script.
 
 <!-- verification-results -->
 - `python docs/verify-pr00.py` : **PASS**, 21 fichiers Markdown (18 documents rédigés hors briefs), 91 cibles de liens locaux, zéro erreur. Ce script complète Git pour les documents encore non suivis.

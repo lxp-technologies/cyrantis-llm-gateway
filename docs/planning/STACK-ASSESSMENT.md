@@ -45,7 +45,7 @@ Reviewed the published [Vite advisory index](https://github.com/vitejs/vite/secu
 
 ## Accepted persistence and package direction
 
-The [ADR update](../pr-00-adr-update.md) selects TypeORM with canonical entities/migrations in `@cyrantis/core`; ORM selection is no longer open. Both APIs initially use the same compatible Nest/TypeORM versions through one lockfile, but ship distinct runnable images. Export contracts/domain separately from server persistence/job-only migration modules and prove the browser bundle cannot import TypeORM.
+The [ADR update](../prs/pr-00/pr-00-adr-update.md) selects TypeORM with canonical entities/migrations in `@cyrantis/core`; ORM selection is no longer open. Both APIs initially use the same compatible Nest/TypeORM versions through one lockfile, but ship distinct runnable images. Export contracts/domain separately from server persistence/job-only migration modules and prove the browser bundle cannot import TypeORM.
 
 Both API DataSources disable `synchronize` and `migrationsRun`; a dedicated migration job is the only schema executor. TypeORM's [migration setup](https://v0.typeorm.io/docs/migrations/setup/) describes those options, and its [transaction documentation](https://orkhan.gitbook.io/typeorm/docs/transactions) requires using the transaction's supplied manager. Verify every repository/relation path respects that manager and explicit tenant predicates. Avoid ActiveRecord/global repository access that escapes the authorized transaction.
 

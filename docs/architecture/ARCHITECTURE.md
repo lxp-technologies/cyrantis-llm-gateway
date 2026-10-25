@@ -1,6 +1,6 @@
 # Target architecture
 
-Status: the two-application topology, canonical core/TypeORM ownership and portable deployment direction are accepted by the [architecture update](../pr-00-adr-update.md). The [finalization brief](../pr-00-finalize.md) preserves these decisions and splits delivery; implementation remains unverified and PR01A/PR01B unstarted. This supersedes the earlier single-process proposal; see [ADR-001](decisions/ADR-001-control-gateway-separation.md).
+Status: the two-application topology, canonical core/TypeORM ownership and portable deployment direction are accepted by the [architecture update](../prs/pr-00/pr-00-adr-update.md). The [finalization brief](../prs/pr-00/pr-00-finalize.md) preserves these decisions and splits delivery; implementation remains unverified and PR01A/PR01B unstarted. This supersedes the earlier single-process proposal; see [ADR-001](decisions/ADR-001-control-gateway-separation.md).
 
 ## Applications and trust crossings
 

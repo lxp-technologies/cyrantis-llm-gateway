@@ -1,6 +1,6 @@
 # ADR-001: Separate control and execution applications with canonical shared definitions
 
-- Status: Accepted topology and package ownership, per the [maintainer's architecture update](../../pr-00-adr-update.md); implementation unstarted
+- Status: Accepted topology and package ownership, per the [maintainer's architecture update](../../prs/pr-00/pr-00-adr-update.md); implementation unstarted
 - Date: 2026-10-25
 - Owner: Project maintainer
 - Affected systems: API, Console, providers, persistence, deployment, PGS integration
@@ -39,7 +39,7 @@ The applications still share schema and infrastructure. Core changes can affect 
 
 ## Validation and rollout
 
-The [finalization brief](../../pr-00-finalize.md) preserves this ADR and narrows delivery slices. PR01A delivers both inert API skeletons, core exports, independent source builds, Console and CI; PR01B adds independent images, Compose/Caddy, Redis/Valkey configuration, probes, shutdown and migration-job contract. PR02A proves roles/TypeORM/RLS/migrations, PR02B human identity/private workspace, and PR02C developer/service identity and Gateway verification. PR03 proves native/aggregator contracts. PR04A–E separately prove credentials, durable admission/usage, distributed coordination/revocation, non-stream execution, then streaming/onboarding. No execution path opens before its preceding safeguards pass. Schema changes test old/new application combinations before independent rollout. See [roadmap](../../planning/ROADMAP.md).
+The [finalization brief](../../prs/pr-00/pr-00-finalize.md) preserves this ADR and narrows delivery slices. PR01A delivers both inert API skeletons, core exports, independent source builds, Console and CI; PR01B adds independent images, Compose/Caddy, Redis/Valkey configuration, probes, shutdown and migration-job contract. PR02A proves roles/TypeORM/RLS/migrations, PR02B human identity/private workspace, and PR02C developer/service identity and Gateway verification. PR03 proves native/aggregator contracts. PR04A–E separately prove credentials, durable admission/usage, distributed coordination/revocation, non-stream execution, then streaming/onboarding. No execution path opens before its preceding safeguards pass. Schema changes test old/new application combinations before independent rollout. See [roadmap](../../planning/ROADMAP.md).
 
 This revision changes documentation only. Future releases expand the schema first, deploy compatible images independently, and contract after the rollback window; never run automatic down migrations at app startup.
 

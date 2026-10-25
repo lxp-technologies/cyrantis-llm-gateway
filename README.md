@@ -4,17 +4,17 @@ A planned, independent multi-provider LLM gateway with free BYOK access and secu
 
 **Status: PR00 discovery and planning. No application has been implemented or deployed.**
 
-The working repository is this repository under `cyrantis/cyrantis-llm-gateway`, on `chore/init`. The destination suggested in the [original brief](docs/pr-00-discovery-architecture-plan.md) is superseded by the existing workspace. Reference applications remain read-only.
+The working repository is this repository under `cyrantis/cyrantis-llm-gateway`, on `chore/init`. The destination suggested in the [original brief](docs/prs/pr-00/pr-00-discovery-architecture-plan.md) is superseded by the existing workspace. Reference applications remain read-only.
 
 ## Start here
 
 | Document | Purpose |
 | --- | --- |
 | [PR00 review](docs/planning/PR00-REVIEW.md) | French final report, actual verification, remaining decisions and PR01A handoff |
-| [Finalization brief](docs/pr-00-finalize.md) | Accepted scope, PR governance and finalization requirements |
+| [Finalization brief](docs/prs/pr-00/pr-00-finalize.md) | Accepted scope, PR governance and finalization requirements |
 | [Roadmap](docs/planning/ROADMAP.md) | PR01A/B, PR02A–C, PR04A–E and subsequent milestones |
 | [Developer Free BYOK](docs/planning/DEVELOPER-BYOK.md) | Individual onboarding, personal/workspace/service credentials and offer boundaries |
-| [ADR update brief](docs/pr-00-adr-update.md) | Maintainer direction and explicit PR00 scope |
+| [ADR update brief](docs/prs/pr-00/pr-00-adr-update.md) | Maintainer direction and explicit PR00 scope |
 | [ADR-001](docs/architecture/decisions/ADR-001-control-gateway-separation.md) | Accepted two-API topology and shared core |
 | [Architecture](docs/architecture/ARCHITECTURE.md) | App/package boundaries, deployment, data and entitlements |
 | [Access boundaries](docs/security/ACCESS-BOUNDARIES.md) | Database grants, identity, credentials, revocation and failure contract |

@@ -1,6 +1,6 @@
 # Delivery roadmap
 
-Status: PR00 finalized as documentation only; all implementation slices remain **not started**. The [finalization brief](../pr-00-finalize.md) preserves [ADR-001](../architecture/decisions/ADR-001-control-gateway-separation.md) and splits the previous PR01/PR02/PR04 batches. Those unsuffixed names now denote families, not additional implementation PRs. PR numbers are planning IDs, not existing GitHub PRs.
+Status: PR00 finalized as documentation only; all implementation slices remain **not started**. The [finalization brief](../prs/pr-00/pr-00-finalize.md) preserves [ADR-001](../architecture/decisions/ADR-001-control-gateway-separation.md) and splits the previous PR01/PR02/PR04 batches. Those unsuffixed names now denote families, not additional implementation PRs. PR numbers are planning IDs, not existing GitHub PRs.
 
 The [architecture](../architecture/ARCHITECTURE.md), [access matrix](../security/ACCESS-BOUNDARIES.md), [threat model](../security/THREAT-MODEL.md), [BYOK model](DEVELOPER-BYOK.md), [provider parity](../architecture/PROVIDER-PARITY.md) and [quality gates](QUALITY-GATES.md) define acceptance. Each meaningful PR uses the [existing template](../../.github/pull_request_template.md): French behavioral BEFORE/AFTER/example and practical validation, plus technical evidence. No missing security gate is waived by splitting delivery.
 
