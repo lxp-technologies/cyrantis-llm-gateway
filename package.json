@@ -1,0 +1,41 @@
+{
+  "name": "cyrantis-llm-gateway",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@12.15.0",
+  "engines": {
+    "node": ">=24.22.1 <25",
+    "pnpm": "12.15.0"
+  },
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "turbo run typecheck",
+    "test": "node --test scripts/check-boundaries.test.mjs && turbo run test",
+    "build": "turbo run build",
+    "check:boundaries": "node scripts/check-boundaries.mjs",
+    "check:docs": "node scripts/check-docs.mjs",
+    "check:secrets": "secretlint \"**/*\"",
+    "check:licenses": "node scripts/check-licenses.mjs",
+    "check:startup": "node scripts/check-startup.mjs",
+    "dev:control": "turbo run dev --filter=@cyrantis/control-api",
+    "dev:gateway": "turbo run dev --filter=@cyrantis/gateway-api",
+    "dev:console": "turbo run dev --filter=@cyrantis/console"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@secretlint/secretlint-rule-preset-recommend": "13.0.7",
+    "@types/node": "24.19.2",
+    "eslint": "10.13.0",
+    "globals": "17.13.0",
+    "prettier": "3.9.10",
+    "secretlint": "13.0.7",
+    "turbo": "2.11.10",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.0",
+    "vitest": "5.0.5"
+  }
+}

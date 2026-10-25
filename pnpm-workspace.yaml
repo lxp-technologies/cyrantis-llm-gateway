@@ -1,0 +1,20 @@
+packages:
+  - apps/*
+  - packages/*
+engineStrict: true
+strictPeerDependencies: true
+savePrefix: ''
+verifyDepsBeforeRun: error
+strictDepBuilds: true
+minimumReleaseAgeStrict: true
+overrides:
+  # GHSA-q7qp-rjg7-q26m; remove after Nest resolves a patched multer itself.
+  '@nestjs/platform-express>multer': 2.5.0
+# Every lifecycle script needs a reviewed, explicit decision.
+allowBuilds:
+  '@nestjs/core': false
+  esbuild: true
+minimumReleaseAgeExclude:
+  - '@mantine/core@9.7.4'
+  - '@mantine/hooks@9.7.4'
+  - multer@2.5.0

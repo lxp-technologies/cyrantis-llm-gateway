@@ -1,6 +1,6 @@
 # Delivery roadmap
 
-Status: PR00 finalized as documentation only; all implementation slices remain **not started**. The [finalization brief](../prs/pr-00/pr-00-finalize.md) preserves [ADR-001](../architecture/decisions/ADR-001-control-gateway-separation.md) and splits the previous PR01/PR02/PR04 batches. Those unsuffixed names now denote families, not additional implementation PRs. PR numbers are planning IDs, not existing GitHub PRs.
+Status: PR00 finalized as documentation; PR01A workspace implementation and local evidence are recorded in the [PR01A review](../prs/pr-01/pr-01a-review.md). PR01B and subsequent slices remain **not started**. The [finalization brief](../prs/pr-00/pr-00-finalize.md) preserves [ADR-001](../architecture/decisions/ADR-001-control-gateway-separation.md) and splits the previous PR01/PR02/PR04 batches. Those unsuffixed names denote families, not additional implementation PRs. PR numbers are planning IDs, not existing GitHub PRs.
 
 The [architecture](../architecture/ARCHITECTURE.md), [access matrix](../security/ACCESS-BOUNDARIES.md), [threat model](../security/THREAT-MODEL.md), [BYOK model](DEVELOPER-BYOK.md), [provider parity](../architecture/PROVIDER-PARITY.md) and [quality gates](QUALITY-GATES.md) define acceptance. Each meaningful PR uses the [existing template](../../.github/pull_request_template.md): French behavioral BEFORE/AFTER/example and practical validation, plus technical evidence. No missing security gate is waived by splitting delivery.
 
@@ -10,7 +10,7 @@ Accepted: two deployable APIs, canonical core/TypeORM, one migration owner, mini
 
 ## PR01A — Workspace Foundation
 
-**Dependency / BEFORE:** finalized PR00 and authorization to start implementation; currently only documentation exists.
+**Dependency / BEFORE:** finalized PR00 and authorization to start implementation; at the start of this slice only documentation existed. The criteria below define its scope; the PR01A review records the actual AFTER and evidence.
 
 **Scope / proposed AFTER:** one pnpm workspace/lockfile and Turbo graph; strict TypeScript; minimal independent `apps/control-api` and `apps/gateway-api` Nest applications; accessible React/Mantine/Vite `apps/console`; canonical `packages/core` with explicit browser-safe contract/domain boundaries. Introduce only definitions actually consumed. Reserve server persistence/migration ownership in core without dummy business entities, broad re-exports or empty abstractions. Select and record patched compatible exact toolchain pins via the [stack gate](STACK-ASSESSMENT.md).
 

@@ -1,0 +1,16 @@
+**/node_modules/
+**/dist/
+**/.turbo/
+**/coverage/
+.tools/
+.pnpm-store/
+projects/
+.idea/
+pnpm-lock.yaml
+# Preserve the approved PR00 documents and input briefs.
+/docs/architecture/
+/docs/discovery/
+/docs/security/
+/docs/planning/
+/docs/prs/pr-00/
+/docs/prs/pr-01/pr-01a-workspace-foundation.md
