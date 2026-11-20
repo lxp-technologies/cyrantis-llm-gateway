@@ -1,0 +1,31 @@
+**/node_modules/
+**/dist/
+**/.turbo/
+**/coverage/
+.tools/
+.pnpm-store/
+projects/
+.idea/
+pnpm-lock.yaml
+# Preserve these approved PR00 baseline files; new ADRs and plans are formatted.
+/docs/architecture/ARCHITECTURE.md
+/docs/architecture/PROVIDER-PARITY.md
+/docs/architecture/decisions/ADR-001-control-gateway-separation.md
+/docs/discovery/INSPECTION-RECORD.md
+/docs/discovery/LXP-ASSESSMENT.md
+/docs/discovery/PGS-INTEGRATION.md
+/docs/discovery/WEBSITE-ASSESSMENT.md
+/docs/security/ACCESS-BOUNDARIES.md
+/docs/security/THREAT-MODEL.md
+/docs/planning/CONSOLE-UX.md
+/docs/planning/DEVELOPER-BYOK.md
+/docs/planning/PR00-REVIEW.md
+/docs/planning/QUALITY-GATES.md
+/docs/planning/ROADMAP.md
+/docs/planning/STACK-ASSESSMENT.md
+# User-supplied briefs/review are immutable inputs, still checked for links/UTF-8.
+/docs/prs/pr-00/pr-00-discovery-architecture-plan.md
+/docs/prs/pr-00/pr-00-adr-update.md
+/docs/prs/pr-00/pr-00-finalize.md
+/docs/prs/pr-01/pr-01a-workspace-foundation.md
+/docs/prs/pr-01/pr-01a-code-review.md

@@ -1,6 +1,11 @@
 # Nestjs specific
-/dist
-/node_modules
+**/dist/
+**/node_modules/
+**/.turbo/
+**/coverage/
+/.tools/
+/.pnpm-store/
+/test-results/
 /build
 /tmp
 
@@ -21,6 +26,8 @@ lerna-debug.log*
 .env.development
 .env.test
 .env.production
+.env.*
+!.env.example
 
 # temp directory
 /projects

@@ -1,6 +1,6 @@
 # Target architecture
 
-Status: the two-application topology, canonical core/TypeORM ownership and portable deployment direction are accepted by the [architecture update](../prs/pr-00/pr-00-adr-update.md). The [finalization brief](../prs/pr-00/pr-00-finalize.md) preserves these decisions and splits delivery; implementation remains unverified and PR01A/PR01B unstarted. This supersedes the earlier single-process proposal; see [ADR-001](decisions/ADR-001-control-gateway-separation.md).
+Status: the two-application topology, canonical core/TypeORM ownership and portable deployment direction are accepted by the [architecture update](../prs/pr-00/pr-00-adr-update.md). The [finalization brief](../prs/pr-00/pr-00-finalize.md) preserves these decisions. PR01A implements inert app shells, consumed core contracts and source-quality gates; see its [review](../prs/pr-01/pr-01a-review.md). PR01B runtime infrastructure and later security/business controls remain unimplemented. This supersedes the earlier single-process proposal; see [ADR-001](decisions/ADR-001-control-gateway-separation.md).
 
 ## Applications and trust crossings
 
@@ -26,7 +26,7 @@ Provider execution belongs only in Gateway. Adapters cannot query tenant data, r
 
 ## Workspace and dependency direction
 
-Planned layout, not files created in PR00:
+Target layout: PR01A creates the three apps, core and root workspace files. Provider SDK/adapters and infra remain later slices; no such files were created in PR00.
 
 ```text
 apps/

@@ -1,6 +1,6 @@
 # Quality gates and evidence policy
 
-Status: required delivery policy; no executable Cyrantis CI exists in PR00. The PR template guides review but does not enforce repository hosting/branch protection. Configure actual required checks when a remote and CI are authorized.
+Status: required delivery policy. PR01A adds executable workspace checks and a GitHub Actions workflow; [local evidence](../prs/pr-01/pr-01a-review.md) is distinct from unverified hosted CI execution. The PR template/workflow files do not configure repository branch protection. Later-stage checks below remain planned until their owning slices implement them.
 
 ## Gates by stage
 
@@ -26,7 +26,7 @@ Tests must exercise actual trust boundaries and behavior, not mirror internal fu
 
 ## Intended command contract
 
-The following scripts are **planned**, not commands that can run in the current documentation-only repository. Each owning PR must implement its script and record the actual invocation/result. Until then, report the corresponding gate as not implemented.
+PR01A's root format/lint/typecheck/test/build/boundary commands are implemented; see the [development guide](../DEVELOPMENT.md). Commands for PR01B and later slices are **planned** except existing source-build commands. Each owning PR implements its new checks and records actual invocation/results; do not report a future gate as passing.
 
 | Owning slice | Planned command / purpose |
 | --- | --- |
@@ -53,6 +53,10 @@ Select scanner tooling and blocking policy in PR01A, extending it to images/infr
 
 ## Review and completion
 
+Before remote merge, require successful **Quality / ubuntu-latest**, **Quality / windows-latest**, **Dependencies and secrets**, and **Documentation** checks from Workspace CI on the PR's latest head commit. Record the head SHA and run/job links; prior-commit, snapshot-review or local results do not substitute. Configure these as required checks through an explicitly authorized repository-administration change, and verify that configuration separately. Missing remote evidence leaves remote merge approval UNVERIFIED; it does not erase valid local evidence.
+
+PR01A's inert Console smoke covers rendering/navigation and automated accessibility without layout. Before the first business UI, require real-browser keyboard navigation, responsive layout and contrast validation, with Playwright journey coverage appropriate to that slice. A jsdom axe run with contrast disabled does not satisfy that evidence. PR01B's runtime gate includes configured container listeners, private API exposure, structured redacted logs, distinct probes, bounded drain and a real Caddy/network test.
+
 Every meaningful implementation PR uses `pr-explainer` for a concise French planning BEFORE and completed AFTER, one concrete example, three takeaways and an executable maintainer validation scenario with expected results. `architecture-pr-review` supplies the separate engineering evidence through the [PR template](../../.github/pull_request_template.md). Documentation-only explanations describe decisions, not imaginary runtime changes.
 
 Every implementation PR supplies proportional BEFORE/AFTER, affected contracts and trust boundaries, alternatives, negative tests, executed commands/results, compatibility, deployment/rollback, deferred work and risks with owner. Add ADRs for durable architectural decisions. Mark not-applicable checks with reasons; missing execution is UNVERIFIED, not a pass.
@@ -74,4 +78,4 @@ Same-tenant ownership matters alongside A/B isolation: another member/admin/serv
 
 Before inference, prove the selected key backend actually denies Control decrypt and Gateway key administration; a symmetric shared root key is not proof. Test metadata binding, version rotation, restore and logs/errors. Browser tests cover Control cookies versus Gateway tokens, CSRF, token substitution/audience/algorithm confusion and tenant switching. Measure durable revocation/pre-dispatch ordering and active lease expiry under dependency loss/scheduler delays. Test unknown upstream acceptance without replay and lease expiry without assuming remote work stopped.
 
-No runtime tests, scanners, container checks or CI were executed in this documentation review. Gates become executable in their owning slices; planned script names are not passing evidence.
+PR00 executed documentation checks only. PR01A's real HTTP/process, React and supply-chain results belong to its linked review; it adds no database/provider/container validation. Gates become executable in their owning slices; planned script names are not passing evidence.

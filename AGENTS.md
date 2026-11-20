@@ -3,7 +3,7 @@
 ## Scope and evidence
 
 - Cyrantis is independent from LXP. Prefer fresh implementation from documented contracts and independently written tests; review provenance, licenses, notices, and dependency terms before copying any code or assets.
-- PR00 is documentation only. Do not generate application scaffolding or begin PR01A/PR01B without explicit authorization. Do not modify the three reference repositories during discovery.
+- Deliver only the currently authorized PR scope, using its brief and implementation evidence. PR01A workspace foundation is implemented; PR01B runtime/deployment work requires explicit authorization. Keep the LXP, PGS and public-website reference repositories read-only unless explicitly authorized otherwise.
 - Read the relevant implementation and local guidance before changing behavior. Distinguish observed facts, recommendations, and unknowns. Never infer runtime guarantees from documentation or test names alone.
 - Keep changes small and independently reviewable. Use the relevant installed skills proportionally. Do not introduce speculative packages, services, plugin frameworks, or duplicated architecture layers.
 - Use English for source, identifiers, public documentation, and commit messages. Provide concise PR explanations to the maintainer in French, including the explanation section of the PR template; preserve technical identifiers.

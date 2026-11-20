@@ -1,6 +1,6 @@
 # Delivery roadmap
 
-Status: PR00 finalized as documentation only; all implementation slices remain **not started**. The [finalization brief](../prs/pr-00/pr-00-finalize.md) preserves [ADR-001](../architecture/decisions/ADR-001-control-gateway-separation.md) and splits the previous PR01/PR02/PR04 batches. Those unsuffixed names now denote families, not additional implementation PRs. PR numbers are planning IDs, not existing GitHub PRs.
+Status: PR00 finalized as documentation; PR01A workspace implementation and local evidence are recorded in the [PR01A review](../prs/pr-01/pr-01a-review.md). PR01B and subsequent slices remain **not started**. The [finalization brief](../prs/pr-00/pr-00-finalize.md) preserves [ADR-001](../architecture/decisions/ADR-001-control-gateway-separation.md) and splits the previous PR01/PR02/PR04 batches. Those unsuffixed names denote families, not additional implementation PRs. PR numbers are planning IDs, not existing GitHub PRs.
 
 The [architecture](../architecture/ARCHITECTURE.md), [access matrix](../security/ACCESS-BOUNDARIES.md), [threat model](../security/THREAT-MODEL.md), [BYOK model](DEVELOPER-BYOK.md), [provider parity](../architecture/PROVIDER-PARITY.md) and [quality gates](QUALITY-GATES.md) define acceptance. Each meaningful PR uses the [existing template](../../.github/pull_request_template.md): French behavioral BEFORE/AFTER/example and practical validation, plus technical evidence. No missing security gate is waived by splitting delivery.
 
@@ -10,7 +10,7 @@ Accepted: two deployable APIs, canonical core/TypeORM, one migration owner, mini
 
 ## PR01A — Workspace Foundation
 
-**Dependency / BEFORE:** finalized PR00 and authorization to start implementation; currently only documentation exists.
+**Dependency / BEFORE:** finalized PR00 and authorization to start implementation; at the start of this slice only documentation existed. The criteria below define its scope; the PR01A review records the actual AFTER and evidence.
 
 **Scope / proposed AFTER:** one pnpm workspace/lockfile and Turbo graph; strict TypeScript; minimal independent `apps/control-api` and `apps/gateway-api` Nest applications; accessible React/Mantine/Vite `apps/console`; canonical `packages/core` with explicit browser-safe contract/domain boundaries. Introduce only definitions actually consumed. Reserve server persistence/migration ownership in core without dummy business entities, broad re-exports or empty abstractions. Select and record patched compatible exact toolchain pins via the [stack gate](STACK-ASSESSMENT.md).
 
@@ -33,6 +33,8 @@ Accepted: two deployable APIs, canonical core/TypeORM, one migration owner, mini
 **Exclusions:** business schema/login/inference, production deployment, public DNS changes and Kubernetes/Helm/Argo CD manifests. Preserve external database/cache/storage/config seams without adding orchestration code.
 
 **Acceptance/security:** non-root bounded containers where practical; only edge public ports, optional loopback-only developer DB/cache bindings; correct host/prefix routing and trusted-proxy handling. Probes distinguish process health from actual configured dependencies, report no unimplemented schema as verified, and reveal no secrets. SIGTERM stops admission/marks unready, drains within bounds and closes pools. Independent restart must not restart the other app.
+
+**Blocking runtime handoff from PR01A review:** validate external HOST/listen configuration, with loopback for local development and an explicitly configured container-network listener such as `0.0.0.0` behind Caddy. Keep API ports private; prove Caddy can reach both separate containers. Replace the inert shells' disabled framework logger with structured, attributable logs that redact secrets/authorization headers/bodies and have tested failure-path redaction. Prove startup/readiness/liveness semantics and bounded graceful shutdown using real processes/proxy connections. These are PR01B acceptance requirements, not permission to change PR01A listeners or add inference routes.
 
 **Mandatory verification:** build each image independently; `docker compose config`, `caddy validate`, real startup/proxy/probe/invalid-config/shutdown tests for Redis and Valkey selections; ACL/connectivity/TTL smoke for operations introduced here, no claim of financial coordination yet. Test streaming/disconnect through Caddy using a controlled test fixture, not a production provider endpoint. Check API images exclude migrator credentials, configuration contains no real secrets, and dependency/image/license scans pass. Record commands/configs/digests.
 
