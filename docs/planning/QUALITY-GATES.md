@@ -53,6 +53,10 @@ Select scanner tooling and blocking policy in PR01A, extending it to images/infr
 
 ## Review and completion
 
+Before remote merge, require successful **Quality / ubuntu-latest**, **Quality / windows-latest**, **Dependencies and secrets**, and **Documentation** checks from Workspace CI on the PR's latest head commit. Record the head SHA and run/job links; prior-commit, snapshot-review or local results do not substitute. Configure these as required checks through an explicitly authorized repository-administration change, and verify that configuration separately. Missing remote evidence leaves remote merge approval UNVERIFIED; it does not erase valid local evidence.
+
+PR01A's inert Console smoke covers rendering/navigation and automated accessibility without layout. Before the first business UI, require real-browser keyboard navigation, responsive layout and contrast validation, with Playwright journey coverage appropriate to that slice. A jsdom axe run with contrast disabled does not satisfy that evidence. PR01B's runtime gate includes configured container listeners, private API exposure, structured redacted logs, distinct probes, bounded drain and a real Caddy/network test.
+
 Every meaningful implementation PR uses `pr-explainer` for a concise French planning BEFORE and completed AFTER, one concrete example, three takeaways and an executable maintainer validation scenario with expected results. `architecture-pr-review` supplies the separate engineering evidence through the [PR template](../../.github/pull_request_template.md). Documentation-only explanations describe decisions, not imaginary runtime changes.
 
 Every implementation PR supplies proportional BEFORE/AFTER, affected contracts and trust boundaries, alternatives, negative tests, executed commands/results, compatibility, deployment/rollback, deferred work and risks with owner. Add ADRs for durable architectural decisions. Mark not-applicable checks with reasons; missing execution is UNVERIFIED, not a pass.

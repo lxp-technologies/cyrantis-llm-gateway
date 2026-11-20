@@ -2,11 +2,12 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
-const briefs = new Set([
+const inputDocuments = new Set([
   'docs/prs/pr-00/pr-00-discovery-architecture-plan.md',
   'docs/prs/pr-00/pr-00-adr-update.md',
   'docs/prs/pr-00/pr-00-finalize.md',
   'docs/prs/pr-01/pr-01a-workspace-foundation.md',
+  'docs/prs/pr-01/pr-01a-code-review.md',
 ]);
 const required = [
   'AGENTS.md',
@@ -20,7 +21,7 @@ const required = [
   'docs/planning/QUALITY-GATES.md',
   'docs/planning/DEVELOPER-BYOK.md',
   'docs/planning/PR00-REVIEW.md',
-  ...briefs,
+  ...inputDocuments,
 ];
 function markdownFiles(directory) {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -47,7 +48,7 @@ for (const file of files) {
     continue;
   }
   const lines = content.split(/\r?\n/u);
-  if (!briefs.has(name)) {
+  if (!inputDocuments.has(name)) {
     authored += 1;
     if (!/^#{1,2} /u.test(content)) errors.push(name + ': missing opening heading');
     if (!content.endsWith('\n')) errors.push(name + ': missing final newline');
